@@ -66,9 +66,11 @@ const todoListSlice = createSlice({
         },
         setCurrentPage: (state, action: PayloadAction<number>) => {
             state.currentPage = action.payload;
+            state.fetchStatus = 'need-load';
             state.taskCreationStatus = 'idle';
         },
         setSortingOptions: (state, action: PayloadAction<{ sortingOrder: SortingOrder, sortingField?: SortingField }>) => {
+            state.fetchStatus = 'need-load';
             state.sortingField = action.payload.sortingField;
             state.sortingOrder = action.payload.sortingOrder;
         },
@@ -101,7 +103,9 @@ const todoListSlice = createSlice({
                 state.taskCreationStatus = 'pending';
             })
             .addCase(createTaskThunk.fulfilled, (state, action) => {
+                state.totalTasks += 1;
                 state.tasks.unshift(action.payload);
+                state.tasks.slice(0, 3);
                 state.sortingField = undefined;
                 state.sortingOrder = 'asc';
                 state.currentPage = 1;

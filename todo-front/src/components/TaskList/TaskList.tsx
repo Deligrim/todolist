@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { fetchTasksThunk, setCurrentPage, setSortingOptions } from 'state/slices/todoListSlice';
 import { Pagination, SortingControl, TaskCard } from 'components';
 import { SortingField, SortingOrder } from 'dtos/FetchTaskList.dto';
-import { useNavigate } from 'react-router-dom';
 
 
 const TaskList = () => {
@@ -20,7 +19,6 @@ const TaskList = () => {
     } = useSelector((state: RootState) => state.todoList);
 
     const dispatch = useDispatch<AppDispatch>();
-    const navigate = useNavigate();
 
     const setSortingParam = (sortingOrder: SortingOrder, sortingField?: SortingField) => {
         dispatch(setSortingOptions({ sortingField, sortingOrder }));
@@ -31,8 +29,9 @@ const TaskList = () => {
     }
 
     useEffect(() => {
-        dispatch(fetchTasksThunk({ page: currentPage, sortField: sortingField, sortOrder: sortingOrder }));
-    }, [currentPage, sortingField, sortingOrder, dispatch, navigate]);
+        if(fetchStatus === 'need-load')
+            dispatch(fetchTasksThunk({ page: currentPage, sortField: sortingField, sortOrder: sortingOrder }));
+    }, [currentPage, sortingField, sortingOrder, dispatch, fetchStatus ]);
 
     return (
         <div className='container'>

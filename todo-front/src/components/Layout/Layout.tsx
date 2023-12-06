@@ -28,7 +28,7 @@ const Layout = () => {
         <div className={styles.layout}>
             <header className={styles.header_background}>
                 <div className={`${styles.header} ${styles.container}`}>
-                    <Link to="/" className={styles.navlink}>TodoList</Link>
+                    <Link to="/" className={styles.navlink}>BeeJee | TodoList</Link>
                     {loginStatus === 'loggedIn' ?
                         <button onClick={clickLogoutHandler} className={styles.primary_button}>Выход</button> :
                         <Link to="/login">
@@ -40,7 +40,7 @@ const Layout = () => {
             <main className={`${styles.main} ${styles.container}`}>
                 <Outlet />
             </main>
-            <footer className={`${styles.footer} ${styles.container}`}>TodoList, 2023</footer>
+            <footer className={`${styles.footer} ${styles.container}`}>© TodoList, 2023</footer>
 
         </div>
 
