@@ -1,52 +1,71 @@
 .card {
-    border: 1px solid var(--gray-light);
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    min-width: 350px;
-  }
-  
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .status_group {
-    display: flex;
-    gap: 10px;
-  }
+  border: 1px solid var(--gray-light);
+  padding: 15px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  min-width: 380px;
+}
 
-  .author,
-  .email,
-  .text {
-    font-size: 1.2em;
-    font-family: var(--font-family);
-  }
-  
-  .email,
-  .text {
-    margin-top: 10px;
-  }
+.container {
+  display: flex;
+  gap: 10px;
+}
 
-  .status {
-    font-size: 1em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    background-color: var(--gray); /* Цвет фона для статуса (сделано) */
-    color: var(--white);
-  }
+.container.no_edit {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
 
-  .action_group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-  }
-  
-  .edit_button,
-  .done_button {
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 1em;
-  }
+.container.with_edit {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.status_group {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.author,
+.email,
+.text {
+  font-size: 1.2em;
+  font-family: var(--font-family);
+}
+
+.email,
+.text {
+  margin-top: 10px;
+  text-wrap: stable;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.status {
+  font-size: 1em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--gray);
+  color: var(--white);
+  text-wrap: nowrap;
+}
+
+.action_group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.edit_button,
+.done_button {
+  text-wrap: nowrap;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-size: 1em;
+}

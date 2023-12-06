@@ -18,25 +18,25 @@ const SortingControl = ({ sortingField, sortingOrder, setSortingParams }: Sortin
         const selectedOrder = event.target.value as SortingOrder;
         setSortingParams( selectedOrder, sortingField);
       };
-      const selectPlaceholder = '- select -';
+      const selectPlaceholder = '- выбрать -';
       return (
         <div className={styles.container}>
           <label>
-            Sorting by:
+            Сортировка по:
             <select value={sortingField || selectPlaceholder} onChange={handleFieldChange}>
               <option disabled>{selectPlaceholder}</option>
-              <option value="username">username</option>
+              <option value="username">имя пользователя</option>
               <option value="email">email</option>
-              <option value="isDone">status</option>
+              <option value="isDone">статус</option>
             </select>
           </label>
     
           <label>
-            Sorting order:
+            Порядок сортировки:
             <select disabled={!sortingField} value={(sortingField &&sortingOrder) || selectPlaceholder} onChange={handleOrderChange}>
               <option disabled>{selectPlaceholder}</option>
-              <option value="asc">ascending</option>
-              <option value="desc">descending</option>
+              <option value="asc">по возрастанию</option>
+              <option value="desc">по убыванию</option>
             </select>
           </label>
         </div>

@@ -1,8 +1,4 @@
 import axios, { AxiosError } from "axios";
-// import { logout } from "state/slices/authSlice";
-// import { store } from "state/store";
-
-
 
 const baseAxiosConfig = {
     baseURL: process.env.REACT_APP_API_URL,

@@ -13,15 +13,15 @@ const TaskCard = ({ task }: { task: Task }) => {
     const { editTaskData } = useSelector((state: RootState) => state.todoList);
 
     const isEdit = editTaskData?.id === task.id;
-    const status = task.isDone ? 'completed' : 'in progress';
+    const status = task.isDone ? 'выполнено' : 'в процессе';
 
     const changeTextHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (editTaskData?.id)
             dispatch(setEditTaskData({ ...editTaskData, text: event.target.value }))
     };
     const toggleEditTask = () => {
-        if(isEdit){
-            if(editTaskData.text.length)
+        if (isEdit) {
+            if (editTaskData.text.length)
                 return dispatch(editTaskTextThunk(editTaskData));
             return dispatch(setEditTaskData());
         }
@@ -31,32 +31,31 @@ const TaskCard = ({ task }: { task: Task }) => {
         dispatch(setTaskDoneThunk(task.id));
     }
 
-    useEffect(()=>{
-        if(loginStatus !== 'loggedIn')
+    useEffect(() => {
+        if (loginStatus !== 'loggedIn')
             dispatch(setEditTaskData());
-    },[dispatch, loginStatus])
+    }, [dispatch, loginStatus])
 
 
     return (
         <div className={styles.card}>
-            <div className={styles.header}>
+            <div className={`${styles.container} ${task.edited ? styles.with_edit : styles.no_edit}`}>
+                {task.edited && <div className={styles.status}>отредактировано администратором</div>}
+                <div className={styles.status}>{status}</div>
                 <div className={styles.author}>👤 {task.username}</div>
-                <div className={styles.status_group}>
-                    {task.edited && <div className={styles.status}>edited by admin</div>}
-                    <div className={styles.status}>{status}</div>
-                </div>
-
             </div>
+
             <p className={styles.email}>📧 {task.email}</p>
             {isEdit ?
-                <textarea className={styles.text} value={editTaskData.text} onChange={changeTextHandler} />:
-                <pre className={styles.text}>{task.text}</pre>}
+                <textarea className={styles.text} value={editTaskData.text} onChange={changeTextHandler} /> :
+                <pre className={styles.text}>{task.text}</pre>
+            }
 
             {loginStatus === 'loggedIn' && (
                 <div className={styles.action_group}>
 
-                    <button onClick={toggleEditTask} className={styles.edit_button}>{isEdit ? 'Save' : 'Edit text'}</button>
-                    { !task.isDone && <button onClick={setDoneTask} className={styles.done_button}>Done task!</button> }
+                    <button onClick={toggleEditTask} className={styles.edit_button}>{isEdit ? 'Сохранить' : 'Редактировать текст'}</button>
+                    {!task.isDone && <button onClick={setDoneTask} className={styles.done_button}>Завершить задачу</button>}
                 </div>
             )}
         </div>

@@ -30,9 +30,9 @@ const Layout = () => {
                 <div className={`${styles.header} ${styles.container}`}>
                     <Link to="/" className={styles.navlink}>TodoList</Link>
                     {loginStatus === 'loggedIn' ?
-                        <button onClick={clickLogoutHandler} className={styles.primary_button}>Logout</button> :
+                        <button onClick={clickLogoutHandler} className={styles.primary_button}>Выход</button> :
                         <Link to="/login">
-                            <button className={styles.primary_button}>Login</button>
+                            <button className={styles.primary_button}>Войти</button>
                         </Link>
                     }
                 </div>

@@ -41,7 +41,7 @@ const authSlice = createSlice({
             state.validationError = null;
         }).addCase(adminLoginThunk.rejected, (state, action) => {
             state.loginStatus = 'error';
-            state.validationError = action.payload?.message || "Unknown error";
+            state.validationError = action.payload?.message || "Неизвестная ошибка";
             localStorage.removeItem('accessToken');
         });
     },

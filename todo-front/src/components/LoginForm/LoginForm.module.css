@@ -1,7 +1,8 @@
 .form_container {
     margin: 35px auto;
     padding: 10px 20px;
-    border: 1px solid var(--gray-light);;
+    border: 1px solid var(--gray-light);
+    ;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -16,7 +17,7 @@
     color: var(--primary);
     font-size: 18px;
     text-decoration: none;
-    padding: 10px 0 ;
+    padding: 10px 0;
 }
 
 .navlink:hover {
@@ -29,6 +30,6 @@
     border-radius: 4px;
     background-color: var(--red);
     padding: 10px;
-    margin: 10px 0 ;
+    margin: 10px 0;
     color: var(--white);
 }

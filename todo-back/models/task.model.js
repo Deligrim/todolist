@@ -20,7 +20,7 @@ class Task extends Model {
           allowNull: false,
         },
         text: {
-          type: DataTypes.STRING,
+          type: DataTypes.TEXT(2048),
           allowNull: false,
         },
         isDone: {

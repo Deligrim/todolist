@@ -36,11 +36,11 @@ const TaskList = () => {
 
     return (
         <div className='container'>
-            {fetchStatus === 'pending' && !tasks.length && <h2>Fetching task list...</h2>}
-            {fetchStatus === 'failed' && <h2>Fail get task list, check later</h2>}
+            {fetchStatus === 'pending' && !tasks.length && <h2>Получение списка задач...</h2>}
+            {fetchStatus === 'failed' && <h2>Ошибка, попробуйте позже</h2>}
             {(fetchStatus === 'complete' || tasks.length > 0) &&
                 <>
-                    <h2>Total tasks: {totalTasks}</h2>
+                    <h2>Всего задач: {totalTasks}</h2>
                     <SortingControl sortingField={sortingField} sortingOrder={sortingOrder} setSortingParams={setSortingParam} />
                     {tasks.map((task) =>
                         <TaskCard key={task.id} task={task} />

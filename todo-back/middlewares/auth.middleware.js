@@ -7,7 +7,7 @@ const adminAuth = (req, res, next) => {
     const bearerPrefix = "Bearer ";
 
     if (!authHeader || !authHeader.startsWith(bearerPrefix)) {
-        return res.status(401).json({ error: 'Unauthorized' });
+        return res.status(401).json({ error: 'Не авторизован' });
     }
     const token = authHeader.substring(bearerPrefix.length, authHeader.length);
 
@@ -17,7 +17,7 @@ const adminAuth = (req, res, next) => {
         next();
     } catch (error) {
         console.error(error);
-        res.status(401).json({ error: 'Unauthorized' });
+        res.status(401).json({ error: 'Не авторизован' });
     }
 };
 

@@ -11,6 +11,7 @@
     margin: 0 auto;
     padding: 0 25px;
 }
+
 .header_background {
     min-width: 100%;
     padding: 15px 0;
@@ -24,9 +25,9 @@
 
 .navlink {
     color: var(--white);
-    font-size: 18px;
+    font-size: 1.2em;
     text-decoration: none;
-    padding: 10px 0 ;
+    padding: 10px 0;
 }
 
 .navlink:hover {
@@ -34,15 +35,17 @@
     transition: color 0.2s ease;
 }
 
-
-.header_background, .footer {
+.header_background,
+.footer {
     flex-grow: 0;
     flex-shrink: 0;
 }
+
 .footer {
     font-size: 22px;
     padding: 25px 25px;
 }
+
 .main {
     flex-grow: 1;
 }

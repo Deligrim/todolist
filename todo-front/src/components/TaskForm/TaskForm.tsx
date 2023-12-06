@@ -21,7 +21,7 @@ const TaskForm = () => {
         event.preventDefault();
 
         if (!formData.username.length || !formData.text.length || !formData.email.length) {
-            dispatch(setValidationError('Username, email and text must be non empty'));
+            dispatch(setValidationError('Имя пользователя, email и текст должны быть заполнены'));
             return;
         }
         dispatch(createTaskThunk(formData));
@@ -29,7 +29,7 @@ const TaskForm = () => {
 
     return (
         <>
-            <h2>New task</h2>
+            <h2>Новая задача</h2>
             <form className={styles.form_body} onSubmit={handleFormSubmit}>
                 {validationError &&
                     <div className={`${styles.panel} ${styles.error}`}>
@@ -38,7 +38,7 @@ const TaskForm = () => {
                 }
                 {taskCreationStatus === 'complete' &&
                     <div className={`${styles.panel} ${styles.success}`}>
-                        Task added successfully
+                        Задача добавлена успешно
                     </div>
                 }
                 <input
@@ -46,27 +46,27 @@ const TaskForm = () => {
                     onChange={handleInputChange}
                     type="text"
                     name="username"
-                    placeholder='Enter username'
+                    placeholder='Введите имя пользователя'
                 />
                 <input
                     value={formData.email}
                     onChange={handleInputChange}
                     type="email"
                     name="email"
-                    placeholder='Enter email'
+                    placeholder='Введите email'
                 />
                 <textarea
                     value={formData.text}
                     className={styles.input}
                     onChange={handleInputChange}
                     name="text"
-                    placeholder='Enter task text'
+                    placeholder='Введите текст задачи'
                 />
                 <button
                     disabled={taskCreationStatus === 'pending'}
                     className={styles.submit_button}
                     type="submit">
-                    Add task
+                    Добавить задачу
                 </button>
             </form>
         </>

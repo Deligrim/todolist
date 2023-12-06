@@ -10,7 +10,7 @@ const login = (req, res) => {
         const accessToken = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: '24h' });
         res.json({ accessToken });
     } else {
-        res.status(401).json({ error: 'Invalid login or password' });
+        res.status(401).json({ error: 'Неверный логин или пароль' });
     }
 };
 

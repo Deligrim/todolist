@@ -1,4 +1,3 @@
-// api.ts
 import { AxiosError } from 'axios';
 import { CreateTaskDto } from 'dtos/CreateTask.dto';
 import { Task } from 'dtos/Task.dto';

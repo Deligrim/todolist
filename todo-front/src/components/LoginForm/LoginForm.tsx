@@ -23,7 +23,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         if (!loginFormData.password.length || !loginFormData.username.length) {
-            dispatch(setValidationError('Username and password must be non empty'));
+            dispatch(setValidationError('Имя пользователя и пароль должны заполнены'));
             return;
         }
         dispatch(adminLoginThunk(loginFormData));
@@ -31,7 +31,7 @@ const LoginForm = () => {
 
     return (
         <div className={styles.form_container}>
-            <h1>Please, login</h1>
+            <h1>Авторизация</h1>
             <form className={styles.form_body} onSubmit={handleFormSubmit}>
                 {validationError &&
                     <div className={styles.error_panel}>
@@ -41,7 +41,7 @@ const LoginForm = () => {
                 <input
                     type="text"
                     name="username"
-                    placeholder='Login'
+                    placeholder='Имя пользователя'
                     onChange={handleInputChange}
                     value={loginFormData.username}
                 />
@@ -49,12 +49,12 @@ const LoginForm = () => {
                     type="password"
                     name="password"
                     autoComplete='password'
-                    placeholder='Password'
+                    placeholder='Пароль'
                     onChange={handleInputChange}
                     value={loginFormData.password}
                 />
-                <button disabled={loginStatus === 'pending'} type="submit">Login</button>
-                <Link to="/" className={styles.navlink}>Back to home</Link>
+                <button disabled={loginStatus === 'pending'} type="submit">Войти</button>
+                <Link to="/" className={styles.navlink}>Вернуться на главную страницу</Link>
             </form>
         </div>
 
