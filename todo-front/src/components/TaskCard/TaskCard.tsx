@@ -39,12 +39,13 @@ const TaskCard = ({ task }: { task: Task }) => {
 
     return (
         <div className={styles.card}>
-            <div className={`${styles.container} ${task.edited ? styles.with_edit : styles.no_edit}`}>
+            <div className={`${styles.container}`}>
                 {task.edited && <div className={styles.status}>отредактировано администратором</div>}
-                <div className={styles.status}>{status}</div>
-                <div className={styles.author}>👤 {task.username}</div>
+                <div className={`${styles.container} ${styles.sub}`}>
+                    <div className={styles.status}>{status}</div>
+                    <div className={styles.author}>👤 {task.username}</div>
+                </div>
             </div>
-
             <p className={styles.email}>📧 {task.email}</p>
             {isEdit ?
                 <textarea className={styles.text} value={editTaskData.text} onChange={changeTextHandler} /> :

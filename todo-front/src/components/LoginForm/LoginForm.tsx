@@ -23,7 +23,7 @@ const LoginForm = () => {
         event.preventDefault();
 
         if (!loginFormData.password.length || !loginFormData.username.length) {
-            dispatch(setValidationError('Имя пользователя и пароль должны заполнены'));
+            dispatch(setValidationError('Имя пользователя и пароль должны быть заполнены'));
             return;
         }
         dispatch(adminLoginThunk(loginFormData));
