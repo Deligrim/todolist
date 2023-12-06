@@ -30,7 +30,7 @@ export const handleApiError = (error: AxiosError): ApiError => {
         return {
             name: "ApiError",
             code: error.response?.status,
-            message: errorResponseData?.error || "Network error"
+            message: errorResponseData?.error || "Ошибка сети"
         };
     }
     return {
